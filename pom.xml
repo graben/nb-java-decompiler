@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.moacirrf</groupId>
     <artifactId>nb-java-decompiler</artifactId>
-    <version>2.0-SNAPSHOT</version>
+    <version>2.1-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <name>NB Java Decompiler</name>
     <url>https://github.com/moacirrf/nb-java-decompiler</url>
@@ -93,7 +93,7 @@
                     <netbeansInstallation>${netbeansInstalationPath}</netbeansInstallation> -->
                     <keystore>${basedir}/keystore.jks</keystore>
                     <keystorepassword>${keypass}</keystorepassword>
-                    <keystorealias>nb-java-decompiler-key</keystorealias>                                                    
+                    <keystorealias>nb-java-decompiler-key</keystorealias>
                 </configuration>
             </plugin>
             <plugin>
@@ -127,16 +127,23 @@
         <dependency>
             <groupId>org.benf</groupId>
             <artifactId>cfr</artifactId>
-            <version>0.152</version>
+            <version>${cfr.version}</version>
         </dependency>
-                      
+
+        <!-- vineflower -->
+        <dependency>
+            <groupId>org.vineflower</groupId>
+            <artifactId>vineflower</artifactId>
+            <version>${vineflower.version}</version>
+        </dependency>
+
         <!-- noexception -->
         <dependency>
             <groupId>com.machinezoo.noexception</groupId>
             <artifactId>noexception</artifactId>
-            <version>1.8.0</version>
+            <version>${noexception.version}</version>
         </dependency>
-               
+
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -144,86 +151,90 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-                
+
         <!-- Netbeans modules -->
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-filesystems</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-awt</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-util</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-loaders</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-windows</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-                  
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-modules-settings</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-text</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-modules-java-source</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-modules</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-java-classpath</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>updater</artifactId>
-            <version>RELEASE130</version>
+            <version>${netbeans.version}</version>
             <type>jar</type>
         </dependency>
 
     </dependencies>
-    
+
     <repositories>
         <repository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
-               
+
     </repositories>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.version>RELEASE210</netbeans.version>
+        <noexception.version>1.9.1</noexception.version>
+        <cfr.version>0.152</cfr.version>
+        <vineflower.version>1.10.1</vineflower.version>
     </properties>
 </project>

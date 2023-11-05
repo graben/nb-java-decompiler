@@ -16,7 +16,8 @@
  */
 package io.github.moacirrf.javadecompiler;
 
-import io.github.moacirrf.javadecompiler.cfr.DecompilerClassImpl;
+import java.util.prefs.Preferences;
+import org.openide.util.NbPreferences;
 
 /**
  *
@@ -25,9 +26,23 @@ import io.github.moacirrf.javadecompiler.cfr.DecompilerClassImpl;
 public final class DecompilerFactory {
 
     public static Decompiler create() {
-        return new DecompilerClassImpl();
+        Preferences prefs = NbPreferences.forModule(DecompilerFactory.class);
+        String decompiler = prefs.get("io.github.moacirrf.javadecompiler.type", "cfr");
+        DecompilerType type = DecompilerType.valueOf(decompiler.toUpperCase());
+        switch (type) {
+            case CFR:
+                return new io.github.moacirrf.javadecompiler.cfr.DecompilerClassImpl();
+            case VINEFLOWER:
+                return new io.github.moacirrf.javadecompiler.vineflower.DecompilerClassImpl();
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 
     private DecompilerFactory() {
+    }
+
+    private enum DecompilerType {
+        CFR, VINEFLOWER;
     }
 }
